@@ -84,13 +84,13 @@ class _HomeState extends State<Home> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
-                padding: EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 20),
+                padding: EdgeInsets.only(left: 50, right: 50, top: 20, bottom: 20),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
               onPressed: calcularIMC,
-              child: Text("Calcular"),
+              child: Text("Calcular",style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
             ),
             SizedBox(height: 80,),
             AnimatedOpacity(
