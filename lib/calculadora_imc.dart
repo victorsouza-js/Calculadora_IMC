@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
             SizedBox(height: 80,),
             AnimatedOpacity(
               opacity: opacity,
-              duration: Duration(seconds: 1),
+              duration: Duration(seconds: 2),
               child: Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
