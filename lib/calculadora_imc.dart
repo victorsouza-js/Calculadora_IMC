@@ -12,6 +12,7 @@ class _HomeState extends State<Home> {
   final TextEditingController pesoController = TextEditingController();
   final TextEditingController alturaController = TextEditingController();
   String resultado = "";
+  double opacity = 0.0;
 
   void calcularIMC() {
     final double? peso = double.tryParse(pesoController.text);
@@ -39,10 +40,12 @@ class _HomeState extends State<Home> {
 
       setState(() {
         resultado = "IMC: ${imc.toStringAsFixed(2)}\n$classificacao";
+        opacity = 1.0; 
       });
     } else {
       setState(() {
         resultado = "Por favor, preencha os campos corretamente!";
+        opacity = 0.0;
       });
     }
   }
@@ -90,8 +93,20 @@ class _HomeState extends State<Home> {
               child: Text("Calcular"),
             ),
             SizedBox(height: 80,),
-            Text(resultado,
-              style: TextStyle(fontSize: 20,),
+            AnimatedOpacity(
+              opacity: opacity,
+              duration: Duration(seconds: 1),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  resultado,
+                  style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
           ],
         ),
